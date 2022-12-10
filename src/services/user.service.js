@@ -1,11 +1,11 @@
-// const { User } = require('../models');
+const { User } = require('../models');
 
-// const getUsers = async () => {
-//     const users = await User.findAll();
+const insertUser = async (displayName, email, password, image) => {
+    await User.create({
+         displayName, email, password, image, 
+    });
+};
 
-//     return users;
-// };
-
-// module.exports = {
-//     getUsers,
-// };
+module.exports = {
+    insertUser,
+};
