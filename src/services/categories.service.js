@@ -6,6 +6,13 @@ const insertCategory = async (name) => {
   });
 };
 
+const getCategory = async () => {
+  const category = await Category.findAll();
+
+  return { type: null, message: category };
+};
+
 module.exports = {
     insertCategory,
+    getCategory,
 };
