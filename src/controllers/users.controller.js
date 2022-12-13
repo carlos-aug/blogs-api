@@ -21,10 +21,22 @@ const insertUser = async (req, res) => {
 const getUsers = async (_req, res) => {
   const users = await user.getUsers();
 
-    return res.status(200).json(users);
+  return res.status(200).json(users);
+};
+
+const getUsersID = async (req, res) => {
+  const { id } = req.params;
+  const userID = await user.getUsersID(id);
+
+  if (!userID) {
+    return res.status(404).json({ message: 'User does not exist' });
+  }
+
+  return res.status(200).json(userID);
 };
 
 module.exports = {
   insertUser,
   getUsers,
+  getUsersID,
 };
